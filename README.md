@@ -1,5 +1,7 @@
 ## 📜 About me
-I like Symfony, Contao and Composer
+Hi, I'm @agonyz 👋   
+
+I like Symfony, Contao and Composer.
 
 ## 🖋 Projects
 ### Games
