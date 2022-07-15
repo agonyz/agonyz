@@ -14,7 +14,6 @@ I like Symfony, Contao and Composer.
 #### 📦 Bundles
 ##### Contao Meme Generator Bundle
 - Link: https://github.com/agonyz/contao-meme-generator-bundle
-- Description: This extension can be used to create memes with the imgflip API. Please note that this is just a test bundle to learn about contao extensions and symfony components.
-It is therefore not intended to be used in a productive environment as of now.
+- Description: This extension can be used to create memes with the imgflip API.
 - Language: German
 - Framework: Symfony/Contao
