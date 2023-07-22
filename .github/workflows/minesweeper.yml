@@ -1,0 +1,64 @@
+name: Minesweeper Action
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  minesweeper_job:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Check if issue title contains Minesweeper
+        id: check_minesweeper
+        run: |
+          if echo "${{ github.event.issue.title }}" | grep -qi 'Minesweeper'; then
+            echo "CONTAINS_MINESWEEPER=true" >> $GITHUB_OUTPUT
+          else
+            echo "CONTAINS_MINESWEEPER=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set envs 
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
+        run: |
+          echo "ISSUE_NUMBER=${{ github.event.issue.number }}" >> $GITHUB_ENV
+          echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+          echo "REPOSITORY_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
+       
+      - name: Checkout code   
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true' 
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Run Minesweeper if title contains "Minesweeper"
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
+        run: |
+          python src/main.py
+
+      - name: Check for changes
+        id: check_changes
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
+        run: |
+          CHANGES=$(git diff --quiet && echo "false" || echo "true")
+          echo "CHANGES_TO_COMMIT=$CHANGES" >> $GITHUB_OUTPUT
+
+      - name: Commit changes
+        if: steps.check_changes.outputs.CHANGES_TO_COMMIT == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/game_state.json README.md
+          git commit -m "${{ github.event.issue.title }} by ${{ github.actor }} - See: #${{github.event.issue.number}}"
+          git push origin main
