@@ -1,6 +1,8 @@
 ## Minesweeper (Github Mini Game)
 Welcome to Minesweeper! Test your wits and strategy in this classic game.    
-To start playing, simply click on one of the question marks and submit the issue to reveal the cell. Be careful though, as there are 10 hidden bombs :bomb: scattered throughout the board.    
+To start playing, simply click on one of the question marks and submit the issue to reveal the cell. 
+
+Be careful though, as there are 10 hidden bombs :bomb: scattered throughout the board.    
 Your mission is to uncover all the cells without hitting a bomb. Good luck, and happy dodging!
 
 ##
