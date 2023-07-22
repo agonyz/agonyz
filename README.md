@@ -68,7 +68,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 <td> </td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+E4">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+F4">?</a></td>
-<td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+G4">?</a></td>
+<td> </td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+H4">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+I4">?</a></td>
 </tr>
