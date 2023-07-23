@@ -158,6 +158,6 @@ If you have any questions, encounter any bugs or have ideas to improve the game,
 
 ##
 
-![Packagist Top Bundles](https://github-readme-packagist-stats.vercel.app/api/packagist/card?vendor=agonyz)
+[![Packagist Top Bundles](https://github-readme-packagist-stats.vercel.app/api/packagist/card?vendor=agonyz)](https://github.com/agonyz/github-readme-packagist-stats)
 
 
