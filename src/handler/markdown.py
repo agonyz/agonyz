@@ -6,7 +6,7 @@ class MarkdownHandler:
         self.repository_name = repository_name
         self.issue_body = 'Please don\'t change anything in this issue. To execute your action simply submit the issue.'
 
-    def generate_html_table(self, game_state):
+    def generate_minesweeper_table(self, game_state):
         # extract information from the game state
         rows = game_state['size']['rows']
         columns = game_state['size']['columns']
@@ -31,12 +31,41 @@ class MarkdownHandler:
             table_rows += '</tr>\n'
 
         # combine header and table rows to complete the table
-        html_table = header + table_rows + '</tbody>\n</table>'
-        return html_table
+        minesweeper_table = header + table_rows + '</tbody>\n</table>'
+        return minesweeper_table
+    
 
-    def update_readme(self, game_state):
+    def generate_scoreboard_table(self, scoreboard_stats, num_players=3):
+        # Extract player information from the game state
+        players = scoreboard_stats['players'] 
+
+        # Sort players by rounds_played in descending order
+        sorted_players = sorted(players, key=lambda x: x.get("rounds_played", 0), reverse=True)
+
+        # Take the top 'num_players' players or all players if there are fewer
+        top_players = sorted_players[:num_players]
+
+        # Create the table header
+        table_header = "| Rank | Player | Rounds Played | Bombs Revealed | Cells Revealed |\n"
+        table_header += "| ---- | ------ | ------------- | -------------- | -------------- |\n"
+
+        # Create the table rows
+        table_rows = ""
+        for rank, player in enumerate(top_players, start=1):
+            name = player.get("name", "")
+            rounds_played = player.get("rounds_played", 0)
+            bombs_revealed = player.get("bombs_revealed", 0)
+            cells_revealed = player.get("cells_revealed", 0)
+            table_rows += f"| {rank} | {name} | {rounds_played} | {bombs_revealed} | {cells_revealed} |\n"
+
+        # combine header and rows to complete the table
+        scoreboard_table = table_header + table_rows
+        return scoreboard_table
+
+    def update_readme(self, game_state, scoreboard_stats):
         # generate the HTML table based on the game state
-        html_table = self.generate_html_table(game_state)
+        minesweeper_table = self.generate_minesweeper_table(game_state)
+        scoreboard_table = self.generate_scoreboard_table(scoreboard_stats)
 
         # read the content of the README.md file
         with open(self.readme_file_path, 'r') as readme_file:
@@ -54,7 +83,7 @@ class MarkdownHandler:
             part_after = readme_content[end_index + len(end_marker):]
 
             # combine the parts with the updated HTML table
-            updated_content = part_before + start_marker + "\n" + html_table + "\n" + end_marker + part_after
+            updated_content = part_before + start_marker + "\n" + minesweeper_table + "\n\n" + scoreboard_table + "\n" + end_marker + part_after
 
             # write the updated content back to the README.md file
             with open(self.readme_file_path, 'w') as readme_file:
@@ -62,7 +91,7 @@ class MarkdownHandler:
         else:
             # if the markers are not found, write the HTML table to the end of the file
             with open(self.readme_file_path, 'a') as readme_file:
-                readme_file.write("\n" + start_marker + "\n" + html_table + "\n" + end_marker)
+                readme_file.write("\n" + start_marker + "\n" + minesweeper_table + + "\n\n" + scoreboard_table + "\n" + end_marker)
 
 
     def get_relative_file_path(self, file_path):

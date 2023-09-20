@@ -46,7 +46,7 @@ elif action_key == Action.REVEAL:
         minesweeper_handler.update_scoreboard(github_handler.issue.user.login, action_to_scoreboard)
 
         # update the readme
-        markdown_handler.update_readme(minesweeper_handler.game_state)
+        markdown_handler.update_readme(minesweeper_handler.game_state, minesweeper_handler.scoreboard_state)
 
         # check if the game is over
         if minesweeper_handler.is_game_over():
@@ -63,7 +63,7 @@ elif action_key == Action.NEW_GAME:
         github_handler.create_comment('Hello @'+ github_handler.issue.user.login +' :wave:\n\nOnly the repository owner can start a new game.\nMention them like this @' + repository_owner)
     else:
         minesweeper_handler.create_initial_game_state()
-        markdown_handler.update_readme(minesweeper_handler.game_state)
+        markdown_handler.update_readme(minesweeper_handler.game_state, minesweeper_handler.scoreboard_state)
         github_handler.create_comment('New game was started.')
 
 else:
