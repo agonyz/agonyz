@@ -56,7 +56,7 @@ class MarkdownHandler:
             rounds_played = player.get("rounds_played", 0)
             bombs_revealed = player.get("bombs_revealed", 0)
             cells_revealed = player.get("cells_revealed", 0)
-            table_rows += f"| {rank} | @{name} | {rounds_played} | {bombs_revealed} | {cells_revealed} |\n"
+            table_rows += f"| {rank} | <a href='https://github.com/{name}'>{name}</a> | {rounds_played} | {bombs_revealed} | {cells_revealed} |\n"
 
         # combine header and rows to complete the table
         scoreboard_table = table_header + table_rows
