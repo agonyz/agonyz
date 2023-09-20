@@ -34,7 +34,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+F1">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+G1">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+H1">?</a></td>
-<td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+I1">?</a></td>
+<td> </td>
 </tr>
 <tr>
 <td>2</td>
@@ -137,11 +137,11 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 
 #### Scoreboard
 
-| Rank | Player | Rounds Played | Bombs Revealed | Hit Rate (%) | Cells Revealed |
+| Rank | Player | Rounds Played | Bombs Revealed | Hit Rate | Cells Revealed |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | <a target='_blank' href='https://github.com/agonyz'>agonyz</a> | 4 | 1% | 25.00 | 3 |
-| 2 | <a target='_blank' href='https://github.com/Agonyz-Bot'>Agonyz-Bot</a> | 4 | 0% | 0.00 | 4 |
-| 3 | <a target='_blank' href='https://github.com/chimpepJS'>chimpepJS</a> | 2 | 0% | 0.00 | 2 |
+| 1 | <a target='_blank' href='https://github.com/agonyz'>agonyz</a> | 5 | 1 | 20% | 4 |
+| 2 | <a target='_blank' href='https://github.com/Agonyz-Bot'>Agonyz-Bot</a> | 4 | 0 | 0% | 4 |
+| 3 | <a target='_blank' href='https://github.com/chimpepJS'>chimpepJS</a> | 2 | 0 | 0% | 2 |
 
 <!-- /minesweeperboard -->
 
