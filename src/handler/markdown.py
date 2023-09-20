@@ -61,7 +61,7 @@ class MarkdownHandler:
             hit_rate = (bombs_revealed / rounds_played) * 100 if rounds_played > 0 else 0
             hit_rate_str = "{:.2f}".format(hit_rate)
 
-            table_rows += f"| {rank} | <a target='_blank' href='https://github.com/{name}'>{name}</a> | {rounds_played} | {bombs_revealed}% | {hit_rate_str} | {cells_revealed} |\n"
+            table_rows += f"| {rank} | <a target='_blank' href='https://github.com/{name}'>{name}</a> | {rounds_played} | {bombs_revealed} | {hit_rate_str}% | {cells_revealed} |\n"
 
         # combine header and rows to complete the table
         scoreboard_table = table_header + table_rows
