@@ -100,7 +100,7 @@ class MinesweeperHandler:
     # Create initial scoreboard state
     def create_initial_scoreboard_state(self):
         scoreboard_state = {
-            "players": [] 
+            'players': [] 
         }
 
         self.scoreboard_state = scoreboard_state
@@ -109,28 +109,28 @@ class MinesweeperHandler:
         return scoreboard_state
     
     def update_scoreboard(self, player_name, action):
-        players = self.scoreboard_state["players"]
+        players = self.scoreboard_state['players']
 
         # Check if the player already exists in the scoreboard
         player_exists = False
         for player in players:
-            if player["name"] == player_name:
+            if player['name'] == player_name:
                 player_exists = True
-                player["rounds_played"] += 1
+                player['rounds_played'] += 1
 
-                if action == "reveal_bomb":
-                    player["bombs_revealed"] += 1
-                elif action == "reveal_cell":
-                    player["cells_revealed"] += 1
+                if action == 'reveal_bomb':
+                    player['bombs_revealed'] += 1
+                elif action == 'reveal_cell':
+                    player['cells_revealed'] += 1
                 break
 
         # If the player doesn't exist, create a new entry
         if not player_exists:
             players.append({
-                "name": player_name,
-                "rounds_played": 1,
-                "bombs_revealed": 1 if action == "reveal_bomb" else 0,
-                "cells_revealed": 1 if action == "reveal_cell" else 0
+                'name': player_name,
+                'rounds_played': 1,
+                'bombs_revealed': 1 if action == 'reveal_bomb' else 0,
+                'cells_revealed': 1 if action == 'reveal_cell' else 0
             })
 
         self.scoreboard_state["players"] = players 
