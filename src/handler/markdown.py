@@ -35,7 +35,7 @@ class MarkdownHandler:
         return minesweeper_table
     
 
-    def generate_scoreboard_table(self, scoreboard_stats, num_players=3):
+    def generate_scoreboard_table(self, scoreboard_stats, num_players=5):
         # Extract player information from the game state
         players = scoreboard_stats['players'] 
 
@@ -46,8 +46,8 @@ class MarkdownHandler:
         top_players = sorted_players[:num_players]
 
         # Create the table header
-        table_header = "| Rank | Player | Rounds Played | Bombs Revealed | Cells Revealed |\n"
-        table_header += "| :---: | :--- | :---: | :---: | :---: |\n"
+        table_header = "| Rank | Player | Rounds Played | Bombs Revealed | Hit Rate (%) | Cells Revealed |\n"
+        table_header += "| :---: | :---: | :---: | :---: | :---: | :---: |\n"
 
         # Create the table rows
         table_rows = ""
@@ -56,7 +56,12 @@ class MarkdownHandler:
             rounds_played = player.get("rounds_played", 0)
             bombs_revealed = player.get("bombs_revealed", 0)
             cells_revealed = player.get("cells_revealed", 0)
-            table_rows += f"| {rank} | <a href='https://github.com/{name}'>{name}</a> | {rounds_played} | {bombs_revealed} | {cells_revealed} |\n"
+
+            # calculate bomb hit rate for the player
+            hit_rate = (bombs_revealed / rounds_played) * 100 if rounds_played > 0 else 0
+            hit_rate_str = "{:.2f}".format(hit_rate)
+
+            table_rows += f"| {rank} | <a target='_blank' href='https://github.com/{name}'>{name}</a> | {rounds_played} | {bombs_revealed}% | {hit_rate_str} | {cells_revealed} |\n"
 
         # combine header and rows to complete the table
         scoreboard_table = table_header + table_rows
