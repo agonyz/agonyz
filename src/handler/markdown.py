@@ -47,7 +47,7 @@ class MarkdownHandler:
 
         # Create the table header
         table_header = "| Rank | Player | Rounds Played | Bombs Revealed | Cells Revealed |\n"
-        table_header += "| ---- | ------ | ------------- | -------------- | -------------- |\n"
+        table_header += "| :---: | :---: | :---: | :---: | :---: |\n"
 
         # Create the table rows
         table_rows = ""
@@ -83,7 +83,7 @@ class MarkdownHandler:
             part_after = readme_content[end_index + len(end_marker):]
 
             # combine the parts with the updated HTML table
-            updated_content = part_before + start_marker + "\n" + minesweeper_table + "\n\n" + scoreboard_table + "\n" + end_marker + part_after
+            updated_content = part_before + start_marker + "\n" + minesweeper_table + "\n\n#### Scoreboard\n\n" + scoreboard_table + "\n" + end_marker + part_after
 
             # write the updated content back to the README.md file
             with open(self.readme_file_path, 'w') as readme_file:
@@ -91,7 +91,7 @@ class MarkdownHandler:
         else:
             # if the markers are not found, write the HTML table to the end of the file
             with open(self.readme_file_path, 'a') as readme_file:
-                readme_file.write("\n" + start_marker + "\n" + minesweeper_table + + "\n\n" + scoreboard_table + "\n" + end_marker)
+                readme_file.write("\n" + start_marker + "\n" + minesweeper_table + + "\n\n#### Scoreboard\n\n" + scoreboard_table + "\n" + end_marker)
 
 
     def get_relative_file_path(self, file_path):
