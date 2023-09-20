@@ -47,7 +47,7 @@ class MarkdownHandler:
 
         # Create the table header
         table_header = "| Rank | Player | Rounds Played | Bombs Revealed | Cells Revealed |\n"
-        table_header += "| :---: | :---: | :---: | :---: | :---: |\n"
+        table_header += "| :---: | :--- | :---: | :---: | :---: |\n"
 
         # Create the table rows
         table_rows = ""
