@@ -59,6 +59,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/game_state.json README.md
+          git add data/game_state.json data/scoreboard_state.json README.md
           git commit -m "${{ github.event.issue.title }} by ${{ github.actor }} - See: #${{github.event.issue.number}}"
-          git push origin main
+          git push origin feature/scoreboard

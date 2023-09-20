@@ -2,7 +2,7 @@ import os
 
 class MarkdownHandler:
     def __init__(self, repository_name):
-        self.file_path = self.get_file_path()
+        self.readme_file_path = self.get_relative_file_path('../../README.md')
         self.repository_name = repository_name
         self.issue_body = 'Please don\'t change anything in this issue. To execute your action simply submit the issue.'
 
@@ -39,7 +39,7 @@ class MarkdownHandler:
         html_table = self.generate_html_table(game_state)
 
         # read the content of the README.md file
-        with open(self.file_path, 'r') as readme_file:
+        with open(self.readme_file_path, 'r') as readme_file:
             readme_content = readme_file.read()
 
         # find the start and end markers in the content
@@ -57,18 +57,18 @@ class MarkdownHandler:
             updated_content = part_before + start_marker + "\n" + html_table + "\n" + end_marker + part_after
 
             # write the updated content back to the README.md file
-            with open(self.file_path, 'w') as readme_file:
+            with open(self.readme_file_path, 'w') as readme_file:
                 readme_file.write(updated_content)
         else:
             # if the markers are not found, write the HTML table to the end of the file
-            with open(self.file_path, 'a') as readme_file:
+            with open(self.readme_file_path, 'a') as readme_file:
                 readme_file.write("\n" + start_marker + "\n" + html_table + "\n" + end_marker)
 
 
-    def get_file_path(self):
+    def get_relative_file_path(self, file_path):
             # get the current directory path
             current_dir = os.path.dirname(os.path.abspath(__file__))
             
             # construct the file path relative to the current directory
-            file_path = os.path.join(current_dir, '../../README.md')
+            file_path = os.path.join(current_dir, file_path)
             return file_path

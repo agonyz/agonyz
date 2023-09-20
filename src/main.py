@@ -40,6 +40,12 @@ elif action_key == Action.REVEAL:
     if not action_handled:
         # update the game state
         minesweeper_handler.update_revealed_array(action_value[0], action_value[1])
+
+        # update the scoreboard based on the action
+        action_to_scoreboard = 'reveal_bomb' if minesweeper_handler.game_state['board'][action_value[0]][action_value[1]] == ':bomb:' else 'reveal_cell'
+        minesweeper_handler.update_scoreboard(github_handler.issue.user.login, action_to_scoreboard)
+
+        # update the readme
         markdown_handler.update_readme(minesweeper_handler.game_state)
 
         # check if the game is over
