@@ -168,5 +168,5 @@ If you have any questions, encounter any bugs or have ideas to improve the game,
 ##
 
 [![Packagist Top Bundles](https://github-readme-packagist-stats.vercel.app/api/packagist/card?vendor=agonyz)](https://github.com/agonyz/github-readme-packagist-stats)
-
+[![Top Language Cards](https://github-readme-stats-omega-ashy.vercel.app/api/top-langs/?username=agonyz&size_weight=0.5&count_weight=0.5&hide=javascript,twig,scss,css,html,shell)](https://github.com/agonyz)
 
