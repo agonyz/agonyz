@@ -78,7 +78,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+B5">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+C5">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+D5">?</a></td>
-<td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+E5">?</a></td>
+<td> </td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+F5">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+G5">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+H5">?</a></td>
@@ -142,6 +142,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 | 1 | <a target='_blank' href='https://github.com/agonyz'>agonyz</a> | 5 | 1 | 20% | 4 |
 | 2 | <a target='_blank' href='https://github.com/Agonyz-Bot'>Agonyz-Bot</a> | 4 | 0 | 0% | 4 |
 | 3 | <a target='_blank' href='https://github.com/chimpepJS'>chimpepJS</a> | 2 | 0 | 0% | 2 |
+| 4 | <a target='_blank' href='https://github.com/AcidicNic'>AcidicNic</a> | 1 | 0 | 0% | 1 |
 
 <!-- /minesweeperboard -->
 
