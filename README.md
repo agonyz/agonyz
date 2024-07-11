@@ -31,7 +31,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+C1">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+D1">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+E1">?</a></td>
-<td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+F1">?</a></td>
+<td> </td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+G1">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+H1">?</a></td>
 <td> </td>
@@ -140,7 +140,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 | Rank | Player | Rounds Played | Bombs Revealed | Hit Rate | Cells Revealed |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | <a target='_blank' href='https://github.com/agonyz'>agonyz</a> | 6 | 1 | 17% | 5 |
-| 2 | <a target='_blank' href='https://github.com/Agonyz-Bot'>Agonyz-Bot</a> | 5 | 0 | 0% | 5 |
+| 2 | <a target='_blank' href='https://github.com/Agonyz-Bot'>Agonyz-Bot</a> | 6 | 0 | 0% | 6 |
 | 3 | <a target='_blank' href='https://github.com/AcidicNic'>AcidicNic</a> | 3 | 0 | 0% | 3 |
 | 4 | <a target='_blank' href='https://github.com/chimpepJS'>chimpepJS</a> | 2 | 0 | 0% | 2 |
 | 5 | <a target='_blank' href='https://github.com/kisalnelaka'>kisalnelaka</a> | 1 | 0 | 0% | 1 |
