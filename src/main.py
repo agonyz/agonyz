@@ -10,6 +10,7 @@ issue_number = int(os.environ.get("ISSUE_NUMBER"))
 github_token = os.environ.get("GITHUB_TOKEN")
 repository_owner = os.environ.get("REPOSITORY_OWNER")
 repository_name = os.environ.get("GITHUB_REPOSITORY")
+previous_job = os.environ.get("PREVIOUS_JOB")
 
 # check if vars are set
 if issue_number is None or github_token is None or repository_owner is None or repository_name is None:
@@ -20,6 +21,11 @@ github_handler = GithubHandler(github_token, repository_name, issue_number)
 action_key, action_value = github_handler.parse_issue_title()
 minesweeper_handler = MinesweeperHandler()
 markdown_handler = MarkdownHandler(repository_name)
+
+if previous_job == "true":
+    github_handler.create_comment('Action could not be executed: There is currently another workflow running.\nPlease wait for a bit and try your luck later again.')
+    github_handler.close_issue()
+    exit(1)
 
 if action_key == Action.INVALID_MOVE:
     github_handler.create_comment('Action could not be executed: Invalid move.\nIf you think this is a bug, please contact the repository owner.')
