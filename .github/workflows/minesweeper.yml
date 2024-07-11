@@ -83,6 +83,7 @@ jobs:
             if [[ "$STATUS_CHECK" == true && "$TIMESTAMP_CHECK" == true ]]; then
               PREVIOUS_JOB="true"
               break
+            fi
           done
 
           # Step 7: Output the final PREVIOUS_JOB status
