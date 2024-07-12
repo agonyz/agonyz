@@ -22,20 +22,72 @@ jobs:
             echo "CONTAINS_MINESWEEPER=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Check for previous running workflows
-        id: check_previous_workflows
-        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
-        uses: agonyz/action-workflow-cancel@0.0.1
-        with:
-          workflow-id: 'minesweeper.yml'
-
-      - name: Set envs
+      - name: Set envs 
         if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
         run: |
           echo "ISSUE_NUMBER=${{ github.event.issue.number }}" >> $GITHUB_ENV
           echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
           echo "REPOSITORY_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
-          echo "PREVIOUS_JOB=${{ steps.check_previous_workflows.outputs.has-already-running-job }}" >> $GITHUB_ENV
+
+      # Todo: Rework this into the python application or write own github action for it
+      - name: Check for previous running workflows
+        id: check_previous_workflows
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
+        run: |
+          # Step 1: Fetch previous workflow runs
+          RESPONSE=$(curl -s -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/minesweeper.yml/runs?per_page=10")
+
+          # Step 2: Fetch details of the current workflow run (to get the created_at)
+          RESPONSE_CURRENT=$(curl -s -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+
+          # Step 3: Initialize env variable
+          PREVIOUS_JOB="false"
+
+          # Step 4: Loop through each run in the API response
+          for row in $(echo "${RESPONSE}" | jq -r '.workflow_runs[] | @base64'); do
+            _jq() {
+              echo ${row} | base64 --decode | jq -r ${1}
+            }
+
+            # Extract run details
+            RUN_ID=$(_jq '.id')
+            RUN_STATUS=$(_jq '.status')
+            RUN_STARTED_AT=$(_jq '.created_at')
+
+            # Step 5: Check if the run is in a relevant status and older than the current run
+            STATUS_CHECK=false
+            case "$RUN_STATUS" in
+              in_progress|queued|waiting|pending|action_required|requested)
+                STATUS_CHECK=true
+                ;;
+              *)
+                STATUS_CHECK=false
+                ;;
+            esac
+
+            TIMESTAMP_CHECK=false
+            # Check if RUN_STARTED_AT is older than the current workflow run's created_at
+            if [[ "$RUN_ID" != "${{ github.run_id }}" && "$RUN_STARTED_AT" && "$(date -u -d "$RUN_STARTED_AT" +%s)" -lt "$(date -u -d "$(echo "$RESPONSE_CURRENT" | jq -r '.created_at')" +%s)" ]]; then
+              TIMESTAMP_CHECK=true
+            fi
+
+            # Step 6: Determine if a previous job meets both status and timestamp criteria
+            if [[ "$STATUS_CHECK" == true && "$TIMESTAMP_CHECK" == true ]]; then
+              PREVIOUS_JOB="true"
+              break
+            fi
+          done
+
+          # Step 7: Output the final PREVIOUS_JOB status
+          echo "PREVIOUS_JOB=$PREVIOUS_JOB" >> $GITHUB_ENV
        
       - name: Checkout code   
         if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true' 
