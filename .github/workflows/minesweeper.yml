@@ -25,7 +25,7 @@ jobs:
       - name: Check for previous running workflows
         id: check_previous_workflows
         if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
-        uses: agonyz/action-workflow-cancel@0.1.0
+        uses: agonyz/action-workflow-cancel@v0.0.1
         with:
           workflow-id: 'minesweeper.yml'
 
@@ -35,7 +35,7 @@ jobs:
           echo "ISSUE_NUMBER=${{ github.event.issue.number }}" >> $GITHUB_ENV
           echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
           echo "REPOSITORY_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
-          echo "PREVIOUS_JOB=${{ steps.check_previous_workflows.outputs.has-already-running-job }}" >> $GITHUB_ENV
+          echo "PREVIOUS_JOB=${{ steps.check_previous_workflows.outputs.has-previous-running-workflow }}" >> $GITHUB_ENV
        
       - name: Checkout code   
         if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true' 
@@ -55,12 +55,6 @@ jobs:
         if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
         run: |
           python src/main.py
-
-      - name: Exit if a previous job is still running
-        if: env.PREVIOUS_JOB == 'true'
-        run: |
-          echo "Another workflow is currently running. Exiting."
-          exit 1
 
       - name: Check for changes
         id: check_changes
