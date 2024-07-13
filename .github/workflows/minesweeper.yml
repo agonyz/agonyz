@@ -25,7 +25,7 @@ jobs:
       - name: Check for previous running workflows
         id: check_previous_workflows
         if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
-        uses: agonyz/action-workflow-cancel@v0.0.1
+        uses: agonyz/action-workflow-cancel@v0.0.2
         with:
           workflow-id: 'minesweeper.yml'
 
