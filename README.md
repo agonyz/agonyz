@@ -63,7 +63,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 <tr>
 <td>4</td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+A4">?</a></td>
-<td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+B4">?</a></td>
+<td> </td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+C4">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+D4">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+E4">?</a></td>
@@ -142,7 +142,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 | 1 | <a target='_blank' href='https://github.com/Agonyz-Bot'>Agonyz-Bot</a> | 8 | 1 | 12% | 7 |
 | 2 | <a target='_blank' href='https://github.com/BoehmMarco'>BoehmMarco</a> | 8 | 0 | 0% | 8 |
 | 3 | <a target='_blank' href='https://github.com/agonyz'>agonyz</a> | 7 | 2 | 29% | 5 |
-| 4 | <a target='_blank' href='https://github.com/ADoebeling'>ADoebeling</a> | 6 | 0 | 0% | 6 |
+| 4 | <a target='_blank' href='https://github.com/ADoebeling'>ADoebeling</a> | 7 | 0 | 0% | 7 |
 | 5 | <a target='_blank' href='https://github.com/AcidicNic'>AcidicNic</a> | 3 | 0 | 0% | 3 |
 
 <!-- /minesweeperboard -->
