@@ -58,7 +58,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 <td> </td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+G3">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+H3">?</a></td>
-<td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+I3">?</a></td>
+<td> </td>
 </tr>
 <tr>
 <td>4</td>
@@ -139,7 +139,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 
 | Rank | Player | Rounds Played | Bombs Revealed | Hit Rate | Cells Revealed |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | <a target='_blank' href='https://github.com/ADoebeling'>ADoebeling</a> | 44 | 1 | 2% | 43 |
+| 1 | <a target='_blank' href='https://github.com/ADoebeling'>ADoebeling</a> | 45 | 1 | 2% | 44 |
 | 2 | <a target='_blank' href='https://github.com/Agonyz-Bot'>Agonyz-Bot</a> | 8 | 1 | 12% | 7 |
 | 3 | <a target='_blank' href='https://github.com/BoehmMarco'>BoehmMarco</a> | 8 | 0 | 0% | 8 |
 | 4 | <a target='_blank' href='https://github.com/agonyz'>agonyz</a> | 7 | 2 | 29% | 5 |
