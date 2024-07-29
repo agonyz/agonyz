@@ -36,9 +36,9 @@ jobs:
           echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
           echo "REPOSITORY_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
           echo "PREVIOUS_JOB=${{ steps.check_previous_workflows.outputs.has-previous-running-workflow }}" >> $GITHUB_ENV
-       
-      - name: Checkout code   
-        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true' 
+
+      - name: Checkout code
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -51,10 +51,25 @@ jobs:
         if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
         run: pip install -r requirements.txt
 
+      - name: Import GPG private key
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import
+
+      - name: Decrypt game state
+        run: |
+          gpg --quiet --batch --yes --decrypt --output data/game_state.json data/game_state.json.gpg
+
       - name: Run Minesweeper if title contains "Minesweeper"
         if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
         run: |
           python src/main.py
+
+      - name: Encrypt game state
+        if: steps.check_minesweeper.outputs.CONTAINS_MINESWEEPER == 'true'
+        run: |
+          gpg --yes --batch --trust-model always --encrypt --recipient "${{ secrets.GPG_EMAIL }}" \
+          --output data/game_state.json.gpg data/game_state.json
 
       - name: Check for changes
         id: check_changes
@@ -68,6 +83,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/game_state.json data/scoreboard_state.json README.md
+          git add data/game_state.json.gpg data/scoreboard_state.json README.md
           git commit -m "${{ github.event.issue.title }} by ${{ github.actor }} - See: #${{github.event.issue.number}}"
           git push origin main
