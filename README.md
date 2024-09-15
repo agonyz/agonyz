@@ -66,7 +66,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+B4">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+C4">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+D4">?</a></td>
-<td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+E4">?</a></td>
+<td> </td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+F4">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+G4">?</a></td>
 <td><a target="_blank" href="https://github.com/agonyz/agonyz/issues/new?body=Please don't change anything in this issue. To execute your action simply submit the issue.&title=Minesweeper%3A+H4">?</a></td>
@@ -139,7 +139,7 @@ Your mission is to uncover all the cells without hitting a bomb. Good luck, and 
 
 | Rank | Player | Rounds Played | Bombs Revealed | Hit Rate | Cells Revealed |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | <a target='_blank' href='https://github.com/ADoebeling'>ADoebeling</a> | 54 | 2 | 4% | 52 |
+| 1 | <a target='_blank' href='https://github.com/ADoebeling'>ADoebeling</a> | 55 | 2 | 4% | 53 |
 | 2 | <a target='_blank' href='https://github.com/Agonyz-Bot'>Agonyz-Bot</a> | 9 | 1 | 11% | 8 |
 | 3 | <a target='_blank' href='https://github.com/agonyz'>agonyz</a> | 8 | 2 | 25% | 6 |
 | 4 | <a target='_blank' href='https://github.com/BoehmMarco'>BoehmMarco</a> | 8 | 0 | 0% | 8 |
