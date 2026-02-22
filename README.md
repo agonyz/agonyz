@@ -173,5 +173,5 @@ If you have any questions, encounter any bugs or have ideas to improve the game,
 
 ###
 
-[![Top Language Cards](https://github-readme-stats-omega-ashy.vercel.app/api/top-langs/?username=agonyz&size_weight=0.5&count_weight=0.5&hide=javascript,twig,scss,css,html,shell,shaderlab)](https://github.com/agonyz)
+[![Top Language Cards](https://github-readme-stats-omega-ashy.vercel.app/api/top-langs/?username=agonyz&size_weight=0.5&count_weight=0.5&hide=javascript,twig,scss,css,html,shell,shaderlab,dockerfile,makefile,hlsl,kotlin,astro,cmake&langs_count=7)](https://github.com/agonyz)
 
