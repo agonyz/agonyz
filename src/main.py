@@ -65,12 +65,12 @@ elif action_key == Action.REVEAL:
             github_handler.create_comment('# :bomb: :sweat_smile:\n### You dodged the bombs - Good Job!\n- Thank you for playing @'+ github_handler.issue.user.login)
 
 elif action_key == Action.NEW_GAME:
-    if github_handler.issue.user.login != repository_owner:
-        github_handler.create_comment('Hello @'+ github_handler.issue.user.login +' :wave:\n\nOnly the repository owner can start a new game.\nMention them like this @' + repository_owner)
-    else:
-        minesweeper_handler.create_initial_game_state()
-        markdown_handler.update_readme(minesweeper_handler.game_state, minesweeper_handler.scoreboard_state)
-        github_handler.create_comment('New game was started.')
+    #if github_handler.issue.user.login != repository_owner:
+    #    github_handler.create_comment('Hello @'+ github_handler.issue.user.login +' :wave:\n\nOnly the repository owner can start a new game.\nMention them like this @' + repository_owner)
+    #else:
+    minesweeper_handler.create_initial_game_state()
+    markdown_handler.update_readme(minesweeper_handler.game_state, minesweeper_handler.scoreboard_state)
+    github_handler.create_comment('New game was started.')
 
 else:
     github_handler.create_comment('Unknown action.')
